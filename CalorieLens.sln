@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalorieLens", "CalorieLens.csproj", "{48AE699E-B2E2-481F-A856-472F8CDE27DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48AE699E-B2E2-481F-A856-472F8CDE27DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48AE699E-B2E2-481F-A856-472F8CDE27DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48AE699E-B2E2-481F-A856-472F8CDE27DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48AE699E-B2E2-481F-A856-472F8CDE27DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4828BFF1-FAF6-4701-A8D7-EAD94A1D2E0E}
+	EndGlobalSection
+EndGlobal
