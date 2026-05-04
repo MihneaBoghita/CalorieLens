@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CalorieLens.Services;
+using CalorieLens.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace CalorieLens
 {
@@ -14,9 +16,11 @@ namespace CalorieLens
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            builder.Services.AddSingleton<DatabaseService>();
+            builder.Services.AddTransient<AuthViewModel>();
+            builder.Services.AddTransient<LoginPage>();
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
