@@ -17,7 +17,5 @@ namespace CalorieLens.Models
     public double Height { get; set; }
 
     public int TargetWeight { get; set; }
-
-    public int DailyCaloriesGoal { get; set; }
 }
 }

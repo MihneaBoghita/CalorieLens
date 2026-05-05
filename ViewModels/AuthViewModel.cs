@@ -39,8 +39,7 @@ namespace CalorieLens.ViewModels
             var user = new User
             {
                 Username = Username,
-                Password = Password,
-                DailyCaloriesGoal = 2000
+                Password = Password
             };
 
             await _db.AddUser(user);

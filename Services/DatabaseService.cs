@@ -9,9 +9,7 @@ public class DatabaseService
 
     public DatabaseService()
     {
-        string dbPath = Path.Combine(
-            FileSystem.AppDataDirectory,
-            "calorielens.db");
+        string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"calorielens.db");
 
         _database = new SQLiteAsyncConnection(dbPath);
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CalorieLens.Views.UserDetail"
+    BackgroundColor="#0F1115">
+
+    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+        <Label
+            Text="Set Up Your Profile"
+            FontSize="28"
+            TextColor="White"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"/>
+
+        <Entry
+            x:Name="heightEntry"
+            Placeholder="Height (cm)"
+            Keyboard="Numeric"
+            TextColor="White"
+            PlaceholderColor="#888"
+            BackgroundColor="#1F2937"
+            HeightRequest="50"/>
+
+        <Entry
+            x:Name="weightEntry"
+            Placeholder="Weight (kg)"
+            Keyboard="Numeric"
+            TextColor="White"
+            PlaceholderColor="#888"
+            BackgroundColor="#1F2937"
+            HeightRequest="50"/>
+
+        <Label
+            Text="Your Goal"
+            TextColor="White"
+            FontAttributes="Bold"/>
+
+        <HorizontalStackLayout Spacing="10">
+
+            <Button Text="Lose"
+                    x:Name="loseBtn"
+                    Clicked="OnGoalSelected"
+                    BackgroundColor="#1F2937"
+                    TextColor="White"/>
+
+            <Button Text="Maintain"
+                    x:Name="maintainBtn"
+                    Clicked="OnGoalSelected"
+                    BackgroundColor="#1F2937"
+                    TextColor="White"/>
+
+            <Button Text="Gain"
+                    x:Name="gainBtn"
+                    Clicked="OnGoalSelected"
+                    BackgroundColor="#1F2937"
+                    TextColor="White"/>
+
+        </HorizontalStackLayout>
+
+        <Button
+            Text="Continue"
+            BackgroundColor="#22C55E"
+            TextColor="Black"
+            CornerRadius="15"
+            HeightRequest="50"
+            Clicked="OnContinueClicked"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -1,6 +1,7 @@
 using CalorieLens.Helpers;
 using CalorieLens.Services;
 using CalorieLens.Models;
+using CalorieLens.Views;
 
 namespace CalorieLens;
 
@@ -16,8 +17,32 @@ public partial class RegisterPage : ContentPage
     {
         await Navigation.PushAsync(new LoginPage(_db));
     }
+    
+    private async void OnShowPasswordClicked(object sender, EventArgs e)
+    {
+        if (passwordEntry.IsPassword == true && passwordVerifcationEntry.IsPassword == true)
+        {
+            passwordEntry.IsPassword = false;
+            passwordVerifcationEntry.IsPassword = false;
+        }
+        else
+        {
+            passwordEntry.IsPassword = true;
+            passwordVerifcationEntry.IsPassword = true;
+        }
+    }
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
+        var result = RegisterVerification.Verify(
+            usernameEntry.Text,
+            passwordEntry.Text,
+            passwordVerifcationEntry.Text);
+
+        if (!result.IsValid)
+        {
+            await DisplayAlert("Error", result.ErrorMessage, "OK");
+            return;
+        }
         var user = new User
         {
             Username = usernameEntry.Text,
@@ -26,6 +51,6 @@ public partial class RegisterPage : ContentPage
 
         await _db.AddUser(user);
 
-        await Navigation.PushAsync(new MainPage());
+        await Navigation.PushAsync(new UserDetail());
     }
 }
