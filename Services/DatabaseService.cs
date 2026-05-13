@@ -9,16 +9,19 @@ public class DatabaseService
 
     public DatabaseService()
     {
-        string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"calorielens.db");
+        string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"..","..","..","..","calorielens.db");
 
         _database = new SQLiteAsyncConnection(dbPath);
-
         _database.CreateTableAsync<User>().Wait();
     }
 
     public async Task AddUser(User user)
     {
         await _database.InsertAsync(user);
+    }
+    public async Task UpdateUser(User user)
+    {
+        await _database.UpdateAsync(user);
     }
 
     public async Task<User> GetUser(string username, string password)

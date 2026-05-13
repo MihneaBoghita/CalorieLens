@@ -17,10 +17,9 @@ public partial class RegisterPage : ContentPage
     {
         await Navigation.PushAsync(new LoginPage(_db));
     }
-    
     private async void OnShowPasswordClicked(object sender, EventArgs e)
     {
-        if (passwordEntry.IsPassword == true && passwordVerifcationEntry.IsPassword == true)
+        if(passwordEntry.IsPassword == true && passwordVerifcationEntry.IsPassword == true)
         {
             passwordEntry.IsPassword = false;
             passwordVerifcationEntry.IsPassword = false;
@@ -51,6 +50,6 @@ public partial class RegisterPage : ContentPage
 
         await _db.AddUser(user);
 
-        await Navigation.PushAsync(new UserDetail());
+        await Navigation.PushAsync(new UserDetail(_db, user));
     }
 }

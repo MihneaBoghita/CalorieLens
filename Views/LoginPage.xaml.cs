@@ -27,7 +27,17 @@ public partial class LoginPage : ContentPage
             await DisplayAlert("Error", "Invalid login", "OK");
         }
     }
-
+    private async void OnShowPasswordClicked(object sender, EventArgs e)
+    {
+        if (passwordEntry.IsPassword == true)
+        {
+            passwordEntry.IsPassword = false;
+        }
+        else
+        {
+            passwordEntry.IsPassword = true;
+        }
+    }
     private async void GoToRegister(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new RegisterPage(_db));

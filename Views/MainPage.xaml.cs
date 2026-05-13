@@ -1,4 +1,7 @@
-﻿namespace CalorieLens
+﻿using Microsoft.Maui.Media;
+using CalorieLens.Views;
+
+namespace CalorieLens
 {
     public partial class MainPage : ContentPage
     {
@@ -9,7 +12,7 @@
 
         private async void OnOpenCamera(object sender, EventArgs e)
         {
-            await DisplayAlert("Camera", "Camera will open here", "OK");
+            
         }
     }
 }

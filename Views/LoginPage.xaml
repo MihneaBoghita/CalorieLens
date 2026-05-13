@@ -26,7 +26,14 @@
                TextColor="White"
                PlaceholderColor="#777"
                BackgroundColor="#1F2937"/>
-
+        <Button
+               Text="Show password"
+               BackgroundColor="#22C55E"
+               TextColor="Black"
+               CornerRadius="12"
+               HeightRequest="10"
+               Clicked="OnShowPasswordClicked"
+               HorizontalOptions="Start"/>
         <Button 
             Text="Login"
             BackgroundColor="#22C55E"

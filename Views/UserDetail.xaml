@@ -37,27 +37,15 @@
             TextColor="White"
             FontAttributes="Bold"/>
 
-        <HorizontalStackLayout Spacing="10">
-
-            <Button Text="Lose"
-                    x:Name="loseBtn"
-                    Clicked="OnGoalSelected"
-                    BackgroundColor="#1F2937"
-                    TextColor="White"/>
-
-            <Button Text="Maintain"
-                    x:Name="maintainBtn"
-                    Clicked="OnGoalSelected"
-                    BackgroundColor="#1F2937"
-                    TextColor="White"/>
-
-            <Button Text="Gain"
-                    x:Name="gainBtn"
-                    Clicked="OnGoalSelected"
-                    BackgroundColor="#1F2937"
-                    TextColor="White"/>
-
-        </HorizontalStackLayout>
+        <Entry
+            x:Name="weightGoalEntry"
+            Placeholder="Goal weight (kg)"
+            Keyboard="Numeric"
+            TextColor="White"
+            PlaceholderColor="#888"
+            BackgroundColor="#1F2937"
+            HeightRequest="50"
+            HorizontalOptions="Start"/>
 
         <Button
             Text="Continue"

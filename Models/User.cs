@@ -9,13 +9,15 @@ namespace CalorieLens.Models
 {
     public class User
 {
-    public int Id { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+
     public string Username { get; set; }
     public string Password { get; set; }
 
     public double Weight { get; set; }
     public double Height { get; set; }
 
-    public int TargetWeight { get; set; }
+    public double TargetWeight { get; set; }
 }
 }

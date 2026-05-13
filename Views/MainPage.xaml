@@ -19,7 +19,10 @@
             TextColor="#A0A0A0"
             HorizontalOptions="Center"
             HorizontalTextAlignment="Center"/>
-
+        <Image 
+            x:Name="myImage"
+            HeightRequest="200"
+            WidthRequest="200" />
         <Button 
             Text="📸 Open Camera"
             BackgroundColor="#22C55E"
