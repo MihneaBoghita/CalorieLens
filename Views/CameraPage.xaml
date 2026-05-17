@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CalorieLens.Views.CameraPage"
+    Title="Scanare Mancare"
+    BackgroundColor="#0F1115">
+
+    <VerticalStackLayout
+        Padding="30"
+        Spacing="24"
+        VerticalOptions="Center">
+
+        <!-- Preview imagine selectata -->
+        <Frame
+            x:Name="imageFrame"
+            IsVisible="False"
+            CornerRadius="16"
+            Padding="0"
+            IsClippedToBounds="True"
+            HeightRequest="280"
+            BorderColor="#1E2028">
+            <Image
+                x:Name="previewImage"
+                Aspect="AspectFill"
+                HeightRequest="280"/>
+        </Frame>
+
+        <!-- Placeholder cand nu e selectata nicio imagine -->
+        <Frame
+            x:Name="placeholderFrame"
+            CornerRadius="16"
+            HeightRequest="280"
+            BackgroundColor="#1A1D24"
+            BorderColor="#2A2D35">
+            <VerticalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Spacing="12">
+                <Label Text="🍽️" FontSize="64" HorizontalOptions="Center"/>
+                <Label
+                    Text="Fa o poza sau alege din galerie"
+                    TextColor="#6B7280"
+                    FontSize="15"
+                    HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Butoane -->
+        <Button
+            x:Name="cameraButton"
+            Text="📸  Fa o poza"
+            Clicked="OnTakePhoto"
+            HeightRequest="56"
+            CornerRadius="28"
+            BackgroundColor="#22C55E"
+            TextColor="Black"
+            FontAttributes="Bold"
+            FontSize="16"/>
+
+        <Button
+            Text="🖼️  Alege din galerie"
+            Clicked="OnPickPhoto"
+            HeightRequest="56"
+            CornerRadius="28"
+            BackgroundColor="#1E2028"
+            TextColor="White"
+            FontSize="16"/>
+
+        <Button
+            x:Name="analyzeButton"
+            Text="🔍  Analizeaza"
+            IsVisible="False"
+            Clicked="OnAnalyze"
+            HeightRequest="56"
+            CornerRadius="28"
+            BackgroundColor="#3B82F6"
+            TextColor="White"
+            FontAttributes="Bold"
+            FontSize="16"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -1,5 +1,4 @@
-﻿using Microsoft.Maui.Media;
-using CalorieLens.Views;
+﻿using CalorieLens.Views;
 
 namespace CalorieLens
 {
@@ -12,7 +11,7 @@ namespace CalorieLens
 
         private async void OnOpenCamera(object sender, EventArgs e)
         {
-            
+            await Navigation.PushAsync(new CameraPage());
         }
     }
 }
