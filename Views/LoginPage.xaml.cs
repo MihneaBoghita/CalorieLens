@@ -20,7 +20,7 @@ public partial class LoginPage : ContentPage
         if (user != null)
         {
             Session.CurrentUser = user;
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new MainPage(user));
         }
         else
         {
