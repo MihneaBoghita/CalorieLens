@@ -361,3 +361,13 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# --- Secrets: never commit these (added for CalorieLens) ---
+**/Secrets.cs
+**/google-services.json
+**/GoogleService-Info.plist
+*.keystore
+*.jks
+*.p12
+appsettings.*.json
+!appsettings.example.json*.db

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CalorieLens.Views.ManualFoodEntryPage"
+    Title="Introdu Mancare"
+    BackgroundColor="#0F1115">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="20"
+            VerticalOptions="Start">
+
+            <!-- Placeholder / iconita -->
+            <Frame
+                CornerRadius="16"
+                HeightRequest="140"
+                BackgroundColor="#1A1D24"
+                BorderColor="#2A2D35">
+                <VerticalStackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Spacing="8">
+                    <Label Text="✍️" FontSize="48" HorizontalOptions="Center"/>
+                    <Label
+                        Text="Nu poți face o poză? Descrie masa ta."
+                        TextColor="#6B7280"
+                        FontSize="14"
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <VerticalStackLayout Spacing="10">
+
+                <Label
+                    Text="📝 Ce ai mâncat?"
+                    TextColor="White"
+                    FontSize="15"
+                    FontAttributes="Bold"/>
+
+                <Label
+                    Text="Descrie mâncarea cât mai detaliat: ingrediente, cantități, mod de preparare — pentru o estimare cât mai precisă."
+                    TextColor="#6B7280"
+                    FontSize="12"/>
+
+                <Frame
+                    BackgroundColor="#1A1D24"
+                    BorderColor="#2A2D35"
+                    CornerRadius="12"
+                    Padding="12,8">
+                    <Editor
+                        x:Name="descriptionEditor"
+                        Placeholder="Ex: 2 ouă ochiuri cu 2 felii de pâine integrală și un avocado mic"
+                        PlaceholderColor="#4B5563"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        FontSize="14"
+                        AutoSize="TextChanges"
+                        MinimumHeightRequest="120"
+                        MaximumHeightRequest="220"/>
+                </Frame>
+
+                <Button
+                    x:Name="analyzeButton"
+                    Text="🔍  Analizează"
+                    Clicked="OnAnalyze"
+                    HeightRequest="56"
+                    CornerRadius="28"
+                    BackgroundColor="#3B82F6"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="16"/>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -45,7 +45,6 @@ public partial class CameraPage : ContentPage
     {
         if (photo == null) return;
 
-        // Salveaza imaginea in cache
         var filePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
 
         using (var stream = await photo.OpenReadAsync())
@@ -60,12 +59,18 @@ public partial class CameraPage : ContentPage
         previewImage.Source = ImageSource.FromFile(filePath);
         imageFrame.IsVisible = true;
         placeholderFrame.IsVisible = false;
-        analyzeButton.IsVisible = true;
+
+        // Afiseaza sectiunea cu detalii si butonul Analizeaza
+        detailsSection.IsVisible = true;
     }
 
     private async void OnAnalyze(object sender, EventArgs e)
     {
         if (_imagePath == null) return;
-        await Navigation.PushAsync(new FoodResultPage(_imagePath));
+
+        // Ia textul din editor (poate fi gol — e optional)
+        var extraDetails = detailsEditor.Text?.Trim() ?? string.Empty;
+
+        await Navigation.PushAsync(new FoodResultPage(_imagePath, extraDetails));
     }
 }

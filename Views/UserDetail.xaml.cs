@@ -13,6 +13,10 @@ public partial class UserDetail : ContentPage
         InitializeComponent();
         _db = db;
         _currentUser = user;
+
+        // Seteaza data minima la maine (nu poti pune goal in trecut)
+        goalDatePicker.MinimumDate = DateTime.Today.AddDays(1);
+        goalDatePicker.Date = DateTime.Today.AddMonths(3);
     }
 
     private async void OnContinueClicked(object sender, EventArgs e)
@@ -43,6 +47,8 @@ public partial class UserDetail : ContentPage
         _currentUser.Age = age;
         _currentUser.Sex = sexPicker.SelectedItem.ToString();
         _currentUser.ActivityLevel = activityPicker.SelectedItem.ToString();
+        _currentUser.GoalDate = goalDatePicker.Date;
+        _currentUser.IsMaintenanceMode = false;
 
         await _db.UpdateUser(_currentUser);
         App.CurrentUser = _currentUser;

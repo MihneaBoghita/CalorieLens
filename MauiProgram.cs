@@ -21,11 +21,14 @@ namespace CalorieLens
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            // DatabaseService este acum un wrapper Firebase — ramane Singleton
             builder.Services.AddSingleton<DatabaseService>();
             builder.Services.AddTransient<AuthViewModel>();
             builder.Services.AddTransient<LoginPage>();
             builder.Services.AddTransient<CameraPage>();
             builder.Services.AddTransient<FoodResultPage>();
+
+            // SQLite-net-pcl nu mai este necesar — poti sterge pachetul din .csproj
 
 #if DEBUG
             builder.Logging.AddDebug();

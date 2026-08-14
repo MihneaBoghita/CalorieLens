@@ -17,7 +17,7 @@
                    PlaceholderColor="#888" BackgroundColor="#1F2937"
                    HeightRequest="50"/>
 
-            <Entry x:Name="weightEntry" Placeholder="Weight (kg)"
+            <Entry x:Name="weightEntry" Placeholder="Current Weight (kg)"
                    Keyboard="Numeric" TextColor="White"
                    PlaceholderColor="#888" BackgroundColor="#1F2937"
                    HeightRequest="50"/>
@@ -26,6 +26,20 @@
                    Keyboard="Numeric" TextColor="White"
                    PlaceholderColor="#888" BackgroundColor="#1F2937"
                    HeightRequest="50"/>
+
+            <!-- Data tinta pentru goal weight -->
+            <Label Text="Target Date for Goal Weight" TextColor="#888" FontSize="13"/>
+            <Frame BackgroundColor="#1F2937" BorderColor="#374151"
+                   CornerRadius="10" Padding="12,4">
+                <DatePicker
+                    x:Name="goalDatePicker"
+                    TextColor="White"
+                    BackgroundColor="Transparent"
+                    MinimumDate="01/01/2025"
+                    MaximumDate="12/31/2035"
+                    Format="dd MMM yyyy"
+                    HeightRequest="44"/>
+            </Frame>
 
             <Entry x:Name="ageEntry" Placeholder="Age"
                    Keyboard="Numeric" TextColor="White"

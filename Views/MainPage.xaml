@@ -19,50 +19,76 @@
             <VerticalStackLayout Padding="20,0" Spacing="20">
 
                 <!-- Roata principala cu macros -->
-                <Grid HorizontalOptions="Center" WidthRequest="260" HeightRequest="260">
+                <Grid HorizontalOptions="Center" WidthRequest="320" HeightRequest="320">
                     <GraphicsView
                         x:Name="macroRingsView"
-                        WidthRequest="260"
-                        HeightRequest="260"/>
-                    <!-- Text central -->
+                        WidthRequest="290"
+                        HeightRequest="290"/>
                     <VerticalStackLayout
                         VerticalOptions="Center"
                         HorizontalOptions="Center"
                         Spacing="2">
                         <Label x:Name="caloriesEatenLabel"
-                               FontSize="32" FontAttributes="Bold"
+                               FontSize="46" FontAttributes="Bold"
                                TextColor="White" HorizontalOptions="Center"/>
-                        <Label Text="kcal" FontSize="13"
-                               TextColor="#6B7280" HorizontalOptions="Center"/>
-                        <Label x:Name="caloriesRemainingLabel"
-                               FontSize="12" TextColor="#9CA3AF"
+                        <Label Text="kcal mâncate"
+                               FontSize="12" TextColor="#6B7280"
                                HorizontalOptions="Center"/>
+                        <BoxView HeightRequest="1" Color="#2A2D35"
+                                 Margin="10,4" HorizontalOptions="Fill"/>
+                        <Label x:Name="caloriesRemainingLabel"
+                               FontSize="16" FontAttributes="Bold"
+                               TextColor="#22C55E" HorizontalOptions="Center"/>
                     </VerticalStackLayout>
                 </Grid>
 
-                <!-- Legenda macros -->
-                <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
-                    <HorizontalStackLayout Spacing="6">
-                        <BoxView Color="#22C55E" WidthRequest="12" HeightRequest="12" CornerRadius="6" VerticalOptions="Center"/>
-                        <Label x:Name="proteinLabel" TextColor="#9CA3AF" FontSize="12"/>
+                <!-- Legenda macros - text complet, culori corecte -->
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
+                      HorizontalOptions="Center" ColumnSpacing="24" RowSpacing="10">
+
+                    <!-- Proteine - albastru -->
+                    <HorizontalStackLayout Grid.Row="0" Grid.Column="0"
+                                           Spacing="8" HorizontalOptions="Center">
+                        <BoxView Color="#3B82F6" WidthRequest="14" HeightRequest="14"
+                                 CornerRadius="7" VerticalOptions="Center" BackgroundColor="Black"/>
+                        <Label x:Name="proteinLabel" TextColor="White"
+                               FontSize="13" VerticalOptions="Center"/>
                     </HorizontalStackLayout>
-                    <HorizontalStackLayout Spacing="6">
-                        <BoxView Color="#F59E0B" WidthRequest="12" HeightRequest="12" CornerRadius="6" VerticalOptions="Center"/>
-                        <Label x:Name="carbsLabel" TextColor="#9CA3AF" FontSize="12"/>
+
+                    <!-- Carbohidrati - portocaliu -->
+                    <HorizontalStackLayout Grid.Row="0" Grid.Column="1"
+                                           Spacing="8" HorizontalOptions="Center">
+                        <BoxView Color="#F59E0B" WidthRequest="14" HeightRequest="14"
+                                 CornerRadius="7" VerticalOptions="Center" BackgroundColor="Black"/>
+                        <Label x:Name="carbsLabel" TextColor="White"
+                               FontSize="13" VerticalOptions="Center"/>
                     </HorizontalStackLayout>
-                    <HorizontalStackLayout Spacing="6">
-                        <BoxView Color="#EF4444" WidthRequest="12" HeightRequest="12" CornerRadius="6" VerticalOptions="Center"/>
-                        <Label x:Name="fatLabel" TextColor="#9CA3AF" FontSize="12"/>
+
+                    <!-- Grasimi - rosu -->
+                    <HorizontalStackLayout Grid.Row="1" Grid.Column="0"
+                                           Spacing="8" HorizontalOptions="Center">
+                        <BoxView Color="#EF4444" WidthRequest="14" HeightRequest="14"
+                                 CornerRadius="7" VerticalOptions="Center" BackgroundColor="Black"/>
+                        <Label x:Name="fatLabel" TextColor="White"
+                               FontSize="13" VerticalOptions="Center"/>
                     </HorizontalStackLayout>
-                </HorizontalStackLayout>
+
+                    <!-- Zahar - mov -->
+                    <HorizontalStackLayout Grid.Row="1" Grid.Column="1"
+                                           Spacing="8" HorizontalOptions="Center">
+                        <BoxView Color="#A855F7" WidthRequest="14" HeightRequest="14"
+                                 CornerRadius="7" VerticalOptions="Center" BackgroundColor="Black"/>
+                        <Label x:Name="sugarLabel" TextColor="White"
+                               FontSize="13" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                </Grid>
 
                 <!-- Lista mancari de azi -->
-                <Label Text="Azi ai mancat" TextColor="White"
+                <Label Text="Azi ai mâncat" TextColor="White"
                        FontSize="16" FontAttributes="Bold"/>
 
-                <CollectionView
-                    x:Name="foodList"
-                    SelectionMode="None">
+                <CollectionView x:Name="foodList" SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Frame BackgroundColor="#1A1D24" BorderColor="#2A2D35"
@@ -87,27 +113,47 @@
                 </CollectionView>
 
                 <Label x:Name="emptyLabel"
-                       Text="Nu ai mancat nimic inca azi 🍽️"
+                       Text="Nu ai mâncat nimic încă azi 🍽️"
                        TextColor="#4B5563" FontSize="14"
                        HorizontalOptions="Center"
                        IsVisible="True"/>
 
-                <BoxView HeightRequest="80" Color="Transparent"/>
+                <!-- Hint swipe spre jurnal -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="6" Margin="0,8,0,0">
+                    <Label Text="Glisează stânga pentru Jurnal"
+                           TextColor="#4B5563" FontSize="12"/>
+                    <Label Text="→" TextColor="#4B5563" FontSize="12"/>
+                </HorizontalStackLayout>
+
+                <BoxView HeightRequest="80" Color="#0F1115"/>
 
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- Buton Scaneaza fix jos -->
-        <Button
-            Grid.Row="2"
-            Text="📸  Scaneaza mancare"
-            Clicked="OnOpenCamera"
-            BackgroundColor="#22C55E"
-            TextColor="Black"
-            CornerRadius="0"
-            HeightRequest="60"
-            FontSize="17"
-            FontAttributes="Bold"/>
+        <!-- Butoane fixe jos: Scaneaza + Introdu manual -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="1">
+            <Button
+                Grid.Column="0"
+                Text="📸  Scaneaza"
+                Clicked="OnOpenCamera"
+                BackgroundColor="#22C55E"
+                TextColor="Black"
+                CornerRadius="0"
+                HeightRequest="60"
+                FontSize="16"
+                FontAttributes="Bold"/>
+
+            <Button
+                Grid.Column="1"
+                Text="✍️  Introdu mancare"
+                Clicked="OnOpenManualEntry"
+                BackgroundColor="#3B82F6"
+                TextColor="White"
+                CornerRadius="0"
+                HeightRequest="60"
+                FontSize="16"
+                FontAttributes="Bold"/>
+        </Grid>
 
     </Grid>
 </ContentPage>

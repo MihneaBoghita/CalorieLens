@@ -1,5 +1,6 @@
-using CalorieLens.Helpers;
+﻿using CalorieLens.Helpers;
 using CalorieLens.Services;
+using CalorieLens.Views;
 
 namespace CalorieLens;
 
@@ -19,25 +20,24 @@ public partial class LoginPage : ContentPage
 
         if (user != null)
         {
+            // Seteaza userul curent in ambele locuri
             Session.CurrentUser = user;
-            await Navigation.PushAsync(new MainPage(user));
+            App.CurrentUser = user;
+
+            // Navigheaza spre pagina cu swipe (Main + Jurnal)
+            await Navigation.PushAsync(new MainCarouselPage(user));
         }
         else
         {
-            await DisplayAlert("Error", "Invalid login", "OK");
+            await DisplayAlert("Error", "Username sau parolă incorecte.", "OK");
         }
     }
+
     private async void OnShowPasswordClicked(object sender, EventArgs e)
     {
-        if (passwordEntry.IsPassword == true)
-        {
-            passwordEntry.IsPassword = false;
-        }
-        else
-        {
-            passwordEntry.IsPassword = true;
-        }
+        passwordEntry.IsPassword = !passwordEntry.IsPassword;
     }
+
     private async void GoToRegister(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new RegisterPage(_db));

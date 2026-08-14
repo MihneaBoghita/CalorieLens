@@ -6,79 +6,116 @@
     Title="Scanare Mancare"
     BackgroundColor="#0F1115">
 
-    <VerticalStackLayout
-        Padding="30"
-        Spacing="24"
-        VerticalOptions="Center">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="20"
+            VerticalOptions="Start">
 
-        <!-- Preview imagine selectata -->
-        <Frame
-            x:Name="imageFrame"
-            IsVisible="False"
-            CornerRadius="16"
-            Padding="0"
-            IsClippedToBounds="True"
-            HeightRequest="280"
-            BorderColor="#1E2028">
-            <Image
-                x:Name="previewImage"
-                Aspect="AspectFill"
-                HeightRequest="280"/>
-        </Frame>
+            <!-- Preview imagine selectata -->
+            <Frame
+                x:Name="imageFrame"
+                IsVisible="False"
+                CornerRadius="16"
+                Padding="0"
+                IsClippedToBounds="True"
+                HeightRequest="260"
+                BorderColor="#1E2028">
+                <Image
+                    x:Name="previewImage"
+                    Aspect="AspectFill"
+                    HeightRequest="260"/>
+            </Frame>
 
-        <!-- Placeholder cand nu e selectata nicio imagine -->
-        <Frame
-            x:Name="placeholderFrame"
-            CornerRadius="16"
-            HeightRequest="280"
-            BackgroundColor="#1A1D24"
-            BorderColor="#2A2D35">
+            <!-- Placeholder cand nu e selectata nicio imagine -->
+            <Frame
+                x:Name="placeholderFrame"
+                CornerRadius="16"
+                HeightRequest="260"
+                BackgroundColor="#1A1D24"
+                BorderColor="#2A2D35">
+                <VerticalStackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Spacing="12">
+                    <Label Text="🍽️" FontSize="64" HorizontalOptions="Center"/>
+                    <Label
+                        Text="Fa o poza sau alege din galerie"
+                        TextColor="#6B7280"
+                        FontSize="15"
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Butoane foto -->
+            <Button
+                x:Name="cameraButton"
+                Text="📸  Fa o poza"
+                Clicked="OnTakePhoto"
+                HeightRequest="56"
+                CornerRadius="28"
+                BackgroundColor="#22C55E"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="16"/>
+
+            <Button
+                Text="🖼️  Alege din galerie"
+                Clicked="OnPickPhoto"
+                HeightRequest="56"
+                CornerRadius="28"
+                BackgroundColor="#1E2028"
+                TextColor="White"
+                FontSize="16"/>
+
+            <!-- Sectiunea de detalii suplimentare — apare doar dupa ce e selectata o imagine -->
             <VerticalStackLayout
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Spacing="12">
-                <Label Text="🍽️" FontSize="64" HorizontalOptions="Center"/>
+                x:Name="detailsSection"
+                IsVisible="False"
+                Spacing="10">
+
                 <Label
-                    Text="Fa o poza sau alege din galerie"
-                    TextColor="#6B7280"
+                    Text="📝 Detalii suplimentare (opțional)"
+                    TextColor="White"
                     FontSize="15"
-                    HorizontalOptions="Center"/>
+                    FontAttributes="Bold"/>
+
+                <Label
+                    Text="Menționează ingrediente specifice, cantități sau metoda de preparare pentru o analiză mai precisă."
+                    TextColor="#6B7280"
+                    FontSize="12"/>
+
+                <Frame
+                    BackgroundColor="#1A1D24"
+                    BorderColor="#2A2D35"
+                    CornerRadius="12"
+                    Padding="12,8">
+                    <Editor
+                        x:Name="detailsEditor"
+                        Placeholder="Ex: am folosit 3 ouă, unt în loc de ulei, fără sare..."
+                        PlaceholderColor="#4B5563"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        FontSize="14"
+                        AutoSize="TextChanges"
+                        MinimumHeightRequest="90"
+                        MaximumHeightRequest="180"/>
+                </Frame>
+
+                <Button
+                    x:Name="analyzeButton"
+                    Text="🔍  Analizează"
+                    Clicked="OnAnalyze"
+                    HeightRequest="56"
+                    CornerRadius="28"
+                    BackgroundColor="#3B82F6"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="16"/>
+
             </VerticalStackLayout>
-        </Frame>
 
-        <!-- Butoane -->
-        <Button
-            x:Name="cameraButton"
-            Text="📸  Fa o poza"
-            Clicked="OnTakePhoto"
-            HeightRequest="56"
-            CornerRadius="28"
-            BackgroundColor="#22C55E"
-            TextColor="Black"
-            FontAttributes="Bold"
-            FontSize="16"/>
-
-        <Button
-            Text="🖼️  Alege din galerie"
-            Clicked="OnPickPhoto"
-            HeightRequest="56"
-            CornerRadius="28"
-            BackgroundColor="#1E2028"
-            TextColor="White"
-            FontSize="16"/>
-
-        <Button
-            x:Name="analyzeButton"
-            Text="🔍  Analizeaza"
-            IsVisible="False"
-            Clicked="OnAnalyze"
-            HeightRequest="56"
-            CornerRadius="28"
-            BackgroundColor="#3B82F6"
-            TextColor="White"
-            FontAttributes="Bold"
-            FontSize="16"/>
-
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

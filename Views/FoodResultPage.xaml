@@ -10,7 +10,7 @@
         <VerticalStackLayout Padding="20" Spacing="20">
 
             <!-- Imaginea capturata -->
-            <Frame CornerRadius="16" Padding="0"
+            <Frame x:Name="imageFrame" CornerRadius="16" Padding="0"
                    IsClippedToBounds="True" HeightRequest="260"
                    BorderColor="#1E2028">
                 <Image x:Name="foodImage" Aspect="AspectFill" HeightRequest="260"/>
@@ -53,7 +53,7 @@
 
             <!-- Butoane -->
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="16">
-                <Button Text="🔄 Scanează din nou" Clicked="OnScanAgain"
+                <Button x:Name="retryButton" Text="🔄 Scanează din nou" Clicked="OnScanAgain"
                         BackgroundColor="#1E2028" TextColor="White"
                         CornerRadius="22" HeightRequest="48" Padding="20,0"/>
                 <Button x:Name="saveButton" Text="💾 Salvează"
